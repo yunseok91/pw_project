@@ -1,2 +1,0 @@
-# pw_project
-playwright

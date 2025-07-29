@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>803</width>
+    <height>632</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PPT 태그 Excel 변환기</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #f5f6fa;
+}
+QGroupBox {
+    border: 1px solid #dcdde1;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-family: '맑은 고딕';
+    font-weight: bold;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 10px;
+    padding: 0 5px 0 5px;
+}
+QPushButton {
+    border-radius: 5px;
+    padding: 5px;
+    font-family: '맑은 고딕';
+}
+QLabel {
+    font-family: '맑은 고딕';
+}
+QCheckBox {
+    font-family: '맑은 고딕';
+}
+QLineEdit {
+    border: 1px solid #dcdde1;
+    border-radius: 3px;
+    padding: 3px;
+    background-color: #f1f2f6;
+}
+QTextEdit {
+    border: 2px solid #dcdde1;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: #2f3640;
+    color: #f5f6fa;
+    font-family: 'Consolas', 'D2Coding';
+    font-size: 9pt;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="titleLabel">
+      <property name="styleSheet">
+       <string notr="true">font-size: 20px;
+font-weight: bold;
+color: #2f3640;
+margin: 10px;
+padding: 10px;</string>
+      </property>
+      <property name="text">
+       <string>Unpack Tagging Guide 변환</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="topLayout">
+      <item>
+       <widget class="QGroupBox" name="uploadGroupBox">
+        <property name="title">
+         <string>파일 업로드</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <layout class="QHBoxLayout" name="pptLayout">
+           <item>
+            <widget class="QLineEdit" name="pptPathLabel">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>PPT 파일을 선택해주세요</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pptSelectBtn">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: #273c75; color: white;</string>
+             </property>
+             <property name="text">
+              <string>찾아보기</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="actionGroupBox">
+        <property name="title">
+         <string>실행</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QPushButton" name="convertBtn">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="focusPolicy">
+            <enum>Qt::WheelFocus</enum>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: #6698cb;
+color: white;
+font-size: 14px;
+font-weight: bold;
+padding: 10px;</string>
+           </property>
+           <property name="text">
+            <string>PPT → Excel 변환하기</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="btnLayout">
+           <item>
+            <widget class="QPushButton" name="clearLogBtn">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: #abb7b7; color: white;</string>
+             </property>
+             <property name="text">
+              <string>로그 지우기</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="exitBtn">
+             <property name="cursor">
+              <cursorShape>PointingHandCursor</cursorShape>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: #495057; color: white;</string>
+             </property>
+             <property name="text">
+              <string>종료</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="optionsGroupBox">
+      <property name="title">
+       <string>진행률</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="styleSheet">
+          <string notr="true">QProgressBar {
+    border: 1px solid #dcdde1;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f1f2f6;
+}
+QProgressBar::chunk {
+    background-color: #00a8ff;
+    border-radius: 5px;
+}</string>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="progressLayout"/>
+    </item>
+    <item>
+     <widget class="QTextEdit" name="logTextEdit">
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_Open_PPT">
+   <property name="text">
+    <string>PPT 파일 열기</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_Save_Excel">
+   <property name="text">
+    <string>Excel 저장</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_Exit">
+   <property name="text">
+    <string>종료</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="text">
+    <string>프로그램 정보</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
